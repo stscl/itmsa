@@ -1,0 +1,20 @@
+---
+title: "Information Consistency-Based Measures for Spatial Association"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{icm}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "man/figures/icm/"
+)
+```
+
+```{r setup}
+library(itmsa)
+```

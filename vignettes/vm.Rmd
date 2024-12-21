@@ -1,0 +1,20 @@
+---
+title: "Information-theoretical V-measure for Spatial Association"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vm}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "man/figures/vm/"
+)
+```
+
+```{r setup}
+library(itmsa)
+```
