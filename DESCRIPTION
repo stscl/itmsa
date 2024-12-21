@@ -11,3 +11,18 @@ License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
+URL: https://stscl.github.io/itmsa/, https://github.com/stscl/itmsa
+BugReports: https://github.com/stscl/itmsa/issues
+Depends: 
+    R (>= 4.1.0)
+LinkingTo: 
+    Rcpp,
+    RcppThread
+Imports: 
+    dplyr,
+    purrr,
+    sdsfun (>= 0.6.0),
+    sf
+Suggests: 
+    Rcpp,
+    RcppThread
