@@ -1,4 +1,5 @@
 #include <vector>
+#include <string>
 #include "CppICM.h"
 #include "CppVM.h"
 #include <Rcpp.h>
@@ -7,7 +8,6 @@
 // [[Rcpp::export]]
 double RcppICM(Rcpp::IntegerVector d,
                Rcpp::IntegerVector s,
-               // Rcpp::String unit,
                std::string unit) {
   // Convert Rcpp::IntegerVector to std::vector<int>
   std::vector<int> d_std = Rcpp::as<std::vector<int>>(d);
@@ -28,7 +28,6 @@ double RcppICM(Rcpp::IntegerVector d,
 // [[Rcpp::export]]
 Rcpp::NumericVector RcppICMP(Rcpp::IntegerVector d,
                              Rcpp::IntegerVector s,
-                             // Rcpp::String unit,
                              std::string unit,
                              int seed,
                              int permutation_number) {
@@ -55,9 +54,7 @@ Rcpp::NumericVector RcppICMP(Rcpp::IntegerVector d,
 // [[Rcpp::export]]
 double RcppVMBase(Rcpp::IntegerVector d,
                   Rcpp::IntegerVector s,
-                  // Rcpp::String unit,
-                  std::string unit
-                  ) {
+                  std::string unit) {
   // Convert Rcpp::IntegerVector to std::vector<int>
   std::vector<int> d_std = Rcpp::as<std::vector<int>>(d);
   std::vector<int> s_std = Rcpp::as<std::vector<int>>(s);
@@ -78,7 +75,6 @@ double RcppVMBase(Rcpp::IntegerVector d,
 // [[Rcpp::export]]
 double RcppVM(Rcpp::IntegerVector d,
               Rcpp::IntegerVector s,
-              // Rcpp::String unit,
               std::string unit,
               double beta = 1) {
   // Convert Rcpp::IntegerVector to std::vector<int>
@@ -101,7 +97,6 @@ double RcppVM(Rcpp::IntegerVector d,
 // [[Rcpp::export]]
 Rcpp::NumericVector RcppVMP(Rcpp::IntegerVector d,
                             Rcpp::IntegerVector s,
-                            // Rcpp::String unit,
                             std::string unit,
                             double beta,
                             int seed,
