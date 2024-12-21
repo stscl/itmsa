@@ -1,9 +1,9 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-itmsa
-<a href="https://stscl.github.io/itmsa/"><img src="man/figures/logo.png" align="right" height="250" alt="itmsa website" /></a>
-\<p align=“right”; style=“font-size:11px”\>logo by Sibyl
-</p>
+
+# itmsa <a href="https://stscl.github.io/itmsa/"><img src="man/figures/logo.png" align="right" height="250" alt="itmsa website" /></a>
+
+<p align="right"; style="font-size:11px">logo by Sibyl</p>
 <!-- badges: start -->
 
 [![Lifecycle:
