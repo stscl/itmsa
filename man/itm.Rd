@@ -36,10 +36,11 @@ A \code{tibble}.
 Information-Theoretic Measures for Spatial Association
 }
 \examples{
-d = c(rep(1,7),rep(2,3),rep(1,3),rep(2,7))
-s = rep(1:2, each = 10)
-demodf = data.frame(d = d, s = s)
+sim = readr::read_csv(system.file('extdata/sim.csv',package = 'itmsa'))
 \donttest{
-itm(d ~ s, data = demodf, method = 'icm')
+# Information-theoretical V-measure
+itm(z1 ~ z2, data = sim, method = 'vm')
+# Information Consistency-Based Measures
+itm(z1 ~ z2, data = sim, method = 'icm')
 }
 }
