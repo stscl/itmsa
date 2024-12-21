@@ -27,6 +27,7 @@ Suggests:
     knitr,
     Rcpp,
     RcppThread,
+    readr,
     rmarkdown,
     tibble
 VignetteBuilder: knitr
