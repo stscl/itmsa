@@ -1,9 +1,9 @@
-#' Information Consistency-Based Measures for Spatial Association
+#' Information-Theoretic Measures for Spatial Association
 #'
 #' @param formula A formula.
 #' @param data A `data.frame`, `tibble` or `sf` object of observation data.
 #' @param method (optional) whether `vm`(default) or `icm`.
-#' @param beta (optional) The $\beta$ value used fo `vm` measure, default is `1`.
+#' @param beta (optional) The \eqn{\beta} value used fo `vm` measure, default is `1`.
 #' @param unit (optional) Logarithm base, default is `e`.
 #' @param seed (optional) Random number seed, default is `42`.
 #' @param permutation_number (optional) Number of Random Permutations, default is `999`.

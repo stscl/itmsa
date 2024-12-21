@@ -2,7 +2,7 @@
 % Please edit documentation in R/itm.R
 \name{itm}
 \alias{itm}
-\title{Information Consistency-Based Measures for Spatial Association}
+\title{Information-Theoretic Measures for Spatial Association}
 \usage{
 itm(
   formula,
@@ -21,7 +21,7 @@ itm(
 
 \item{method}{(optional) whether \code{vm}(default) or \code{icm}.}
 
-\item{beta}{(optional) The $\beta$ value used fo \code{vm} measure, default is \code{1}.}
+\item{beta}{(optional) The \eqn{\beta} value used fo \code{vm} measure, default is \code{1}.}
 
 \item{unit}{(optional) Logarithm base, default is \code{e}.}
 
@@ -33,7 +33,7 @@ itm(
 A \code{tibble}.
 }
 \description{
-Information Consistency-Based Measures for Spatial Association
+Information-Theoretic Measures for Spatial Association
 }
 \examples{
 d = c(rep(1,7),rep(2,3),rep(1,3),rep(2,7))
