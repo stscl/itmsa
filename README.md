@@ -25,7 +25,7 @@ install.packages("itmsa", dep = TRUE)
 ```
 
 - Install binary version from
-  [R-universe](https://stscl.r-universe.dev/sshicm) with:
+  [R-universe](https://stscl.r-universe.dev/itmsa) with:
 
 ``` r
 install.packages("itmsa",
