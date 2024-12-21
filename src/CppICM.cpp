@@ -4,7 +4,12 @@
 #include <cmath>
 #include <limits>
 #include <stdexcept>
+#include <random>
 #include "CppStats.h"
+#include <RcppThread.h>
+
+// [[Rcpp::plugins(cpp11)]]
+// [[Rcpp::depends(RcppThread)]]
 
 // Function to calculate the Information Content Measure (ICM)
 double CppICM(const std::vector<int>& d,
@@ -79,4 +84,53 @@ double CppICM(const std::vector<int>& d,
     return std::numeric_limits<double>::quiet_NaN(); // Avoid division by zero
   }
   return 1.0 - (numerator / denominator);
+}
+
+// CppICMP: Parallel computation of CppICM over permutations, returning IN value and p-value
+std::vector<double> CppICMP(const std::vector<int>& d,
+                            const std::vector<int>& s,
+                            const std::string& unit = "e",
+                            const int& seed = 123456789,
+                            const int& permutation_number = 999) {
+  if (s.size() != d.size()) {
+    throw std::invalid_argument("Vectors s and d must have the same length.");
+  }
+
+  // Step 1: Calculate the true IN value using the original d and s
+  double true_IN = CppICM(d, s, unit);
+
+  // Step 2: Generate random permutations of d and compute IN for each
+  std::vector<double> IN_results(permutation_number, 0.0);  // Store IN values for each permutation
+
+  // Step 3: Generate a random seed using the input seed
+  std::mt19937 seed_gen(seed);  // Initialize random number generator with the input seed
+  // std::uniform_int_distribution<> dis(1, std::numeric_limits<int>::max());  // Define a distribution for random integers
+  std::uniform_int_distribution<> dis(1, 100);
+  int randomseed = dis(seed_gen);  // Generate a random integer using the input seed
+
+  // Step 4: Perform parallel computation
+  RcppThread::parallelFor(0, permutation_number, [&](size_t i) {
+    // Step 4.1: Generate a unique seed for each permutation by adding the iteration index to the randomseed
+    std::mt19937 local_gen(randomseed + i);  // Modify seed for each thread
+
+    // Step 4.2: Permute d
+    std::vector<int> permuted_d = d;  // Copy the original d
+    std::shuffle(permuted_d.begin(), permuted_d.end(), local_gen); // Shuffle based on the unique seed for each thread
+
+    // Step 4.3: Compute IN_SSH for the permuted d
+    IN_results[i] = CppICM(permuted_d, s, unit);
+  });
+
+  // Step 5: Compute p-value by comparing permuted IN_SSH values to the true IN_SSH value
+  int greater_count = 0;
+  for (size_t i = 0; i < IN_results.size(); ++i) {
+    if (IN_results[i] >= true_IN) {
+      greater_count++;
+    }
+  }
+
+  double p_value = static_cast<double>(greater_count) / permutation_number;
+
+  // Return a vector containing the true IN_SSH and p-value
+  return {true_IN, p_value};
 }
