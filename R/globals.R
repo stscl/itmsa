@@ -1,1 +1,1 @@
-utils::globalVariables(c("Ic", "Iv", "Pv", "Variable"))
+utils::globalVariables(c("Iv", "Pv", "Variable"))

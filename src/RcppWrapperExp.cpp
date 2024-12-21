@@ -39,7 +39,7 @@ Rcpp::NumericVector RcppICMP(Rcpp::IntegerVector d,
 
   // Convert the std::vector<double> result to Rcpp::NumericVector with names
   Rcpp::NumericVector named_result(result.begin(), result.end());
-  named_result.names() = Rcpp::CharacterVector::create("Ic", "Pv");
+  named_result.names() = Rcpp::CharacterVector::create("Iv", "Pv");
 
   return named_result;
 }

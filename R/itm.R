@@ -2,6 +2,8 @@
 #'
 #' @param formula A formula.
 #' @param data A `data.frame`, `tibble` or `sf` object of observation data.
+#' @param method (optional) whether `vm`(default) or `icm`.
+#' @param beta (optional) The $\beta$ value used fo `vm` measure, default is `1`.
 #' @param unit (optional) Logarithm base, default is `e`.
 #' @param seed (optional) Random number seed, default is `42`.
 #' @param permutation_number (optional) Number of Random Permutations, default is `999`.
@@ -14,10 +16,10 @@
 #' s = rep(1:2, each = 10)
 #' demodf = data.frame(d = d, s = s)
 #' \donttest{
-#' icm(d ~ s, data = demodf)
+#' itm(d ~ s, data = demodf, method = 'icm')
 #' }
-icm = \(formula, data, unit = c("e","2","10"),
-        seed = 42, permutation_number = 999){
+itm = \(formula, data, method = c("vm","icm"), beta = 1,
+        unit = c("e","2","10"), seed = 42, permutation_number = 999){
   if (inherits(data,"sf")){
     data = sf::st_drop_geometry(data)
   }
@@ -27,11 +29,19 @@ icm = \(formula, data, unit = c("e","2","10"),
   xtbl = dplyr::select(data,dplyr::all_of(formulavar[[2]]))
 
   unit = match.arg(unit)
+  method = match.arg(method)
   res = purrr::map_dfr(xtbl,
-                       \(.x) RcppICMP(yvec,.x, unit, seed,
-                                      permutation_number)) |>
+                       \(.x) {
+                         if (method == "icm") {
+                           return(RcppICMP(yvec, .x, unit, seed,
+                                           permutation_number))
+                         } else {
+                           return(RcppVMP(yvec,.x,unit,beta,seed,
+                                          permutation_number))
+                         }
+                       }) |>
     dplyr::mutate(Variable = names(xtbl)) |>
-    dplyr::select(Variable,Ic,Pv) |>
-    dplyr::arrange(dplyr::desc(Ic))
+    dplyr::select(Variable,Iv,Pv) |>
+    dplyr::arrange(dplyr::desc(Iv))
   return(res)
 }
