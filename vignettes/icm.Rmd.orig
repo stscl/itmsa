@@ -7,7 +7,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "##",
+  fig.path = "man/figures/icm/"
+)
+```
 
 ## 1. The principle of the information consistency-based measures
 
@@ -26,21 +32,13 @@ install.packages("itmsa", dep = TRUE)
 install.packages("gdverse", dep = TRUE)
 ```
 
-
-``` r
+```{r}
 library(itmsa)
 ```
 
-
-``` r
+```{r}
 ntds = gdverse::NTDs
 ntds$incidence = sdsfun::discretize_vector(ntds$incidence, 5)
 itm(incidence ~ watershed + elevation + soiltype,
     data = ntds, method = "icm")
-## # A tibble: 3 × 3
-##   Variable     Iv    Pv
-##   <chr>     <dbl> <dbl>
-## 1 watershed 0.445     0
-## 2 elevation 0.390     0
-## 3 soiltype  0.210     0
 ```
