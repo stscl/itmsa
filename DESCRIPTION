@@ -1,10 +1,12 @@
 Package: itmsa
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Information-Theoretic Measures for Spatial Association
+Version: 0.1.0
 Authors@R: 
-    person("Wenbo", "Lv", , "lyu.geosocial@gmail.com", role = c("aut", "cre"),
+    person(given = "Wenbo", family = "Lv",
+           email = "lyu.geosocial@gmail.com", 
+           role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0009-0002-6003-3800"))
-Description: What the package does (one paragraph).
+Description: Leveraging information-theoretic measures like mutual information and v-measure to quantify spatial associations between patterns (Nowosad and Stepinski (2018) <doi:10.1080/13658816.2018.1511794>; Bai, H. et al. (2023) <doi:10.1080/24694452.2023.2223700>).
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
