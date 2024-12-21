@@ -36,6 +36,9 @@ Rcpp::NumericVector RcppICMP(Rcpp::IntegerVector d,
   // Call the IN_SSHICM function
   std::vector<double> result = CppICMP(d_std, s_std, unit_std, seed, permutation_number);
 
-  // Convert the std::vector<double> result to Rcpp::NumericVector
-  return Rcpp::wrap(result);
+  // Convert the std::vector<double> result to Rcpp::NumericVector with names
+  Rcpp::NumericVector named_result(result.begin(), result.end());
+  named_result.names() = Rcpp::CharacterVector::create("Ic", "Pv");
+
+  return named_result;
 }
