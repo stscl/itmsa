@@ -33,6 +33,7 @@ Information Consistency-Based Measures for Spatial Association
 d = c(rep(1,7),rep(2,3),rep(1,3),rep(2,7))
 s = rep(1:2, each = 10)
 demodf = data.frame(d = d, s = s)
+\donttest{
 icm(d ~ s, data = demodf)
-
+}
 }
