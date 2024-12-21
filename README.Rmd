@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 [![R-universe](https://stscl.r-universe.dev/badges/itmsa?color=cyan)](https://stscl.r-universe.dev/itmsa)
 <!-- badges: end -->
 
-**Information Consistency-Based Measures for Spatial Stratified Heterogeneity**
+**Information-Theoretic Measures for Spatial Association**
 
 ## Installation
 

@@ -13,8 +13,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-cyan.svg)](htt
 [![R-universe](https://stscl.r-universe.dev/badges/itmsa?color=cyan)](https://stscl.r-universe.dev/itmsa)
 <!-- badges: end -->
 
-**Information Consistency-Based Measures for Spatial Stratified
-Heterogeneity**
+**Information-Theoretic Measures for Spatial Association**
 
 ## Installation
 
