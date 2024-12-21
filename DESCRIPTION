@@ -26,5 +26,6 @@ Imports:
 Suggests: 
     knitr,
     RcppThread,
-    rmarkdown
+    rmarkdown,
+    tibble
 VignetteBuilder: knitr
