@@ -39,10 +39,56 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// RcppVMBase
+double RcppVMBase(Rcpp::IntegerVector d, Rcpp::IntegerVector s, Rcpp::String unit);
+RcppExport SEXP _itmsa_RcppVMBase(SEXP dSEXP, SEXP sSEXP, SEXP unitSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type d(dSEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type s(sSEXP);
+    Rcpp::traits::input_parameter< Rcpp::String >::type unit(unitSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppVMBase(d, s, unit));
+    return rcpp_result_gen;
+END_RCPP
+}
+// RcppVM
+double RcppVM(Rcpp::IntegerVector d, Rcpp::IntegerVector s, Rcpp::String unit, double beta);
+RcppExport SEXP _itmsa_RcppVM(SEXP dSEXP, SEXP sSEXP, SEXP unitSEXP, SEXP betaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type d(dSEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type s(sSEXP);
+    Rcpp::traits::input_parameter< Rcpp::String >::type unit(unitSEXP);
+    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppVM(d, s, unit, beta));
+    return rcpp_result_gen;
+END_RCPP
+}
+// RcppVMP
+Rcpp::NumericVector RcppVMP(Rcpp::IntegerVector d, Rcpp::IntegerVector s, Rcpp::String unit, double beta, int seed, int permutation_number);
+RcppExport SEXP _itmsa_RcppVMP(SEXP dSEXP, SEXP sSEXP, SEXP unitSEXP, SEXP betaSEXP, SEXP seedSEXP, SEXP permutation_numberSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type d(dSEXP);
+    Rcpp::traits::input_parameter< Rcpp::IntegerVector >::type s(sSEXP);
+    Rcpp::traits::input_parameter< Rcpp::String >::type unit(unitSEXP);
+    Rcpp::traits::input_parameter< double >::type beta(betaSEXP);
+    Rcpp::traits::input_parameter< int >::type seed(seedSEXP);
+    Rcpp::traits::input_parameter< int >::type permutation_number(permutation_numberSEXP);
+    rcpp_result_gen = Rcpp::wrap(RcppVMP(d, s, unit, beta, seed, permutation_number));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_itmsa_RcppICM", (DL_FUNC) &_itmsa_RcppICM, 3},
     {"_itmsa_RcppICMP", (DL_FUNC) &_itmsa_RcppICMP, 5},
+    {"_itmsa_RcppVMBase", (DL_FUNC) &_itmsa_RcppVMBase, 3},
+    {"_itmsa_RcppVM", (DL_FUNC) &_itmsa_RcppVM, 4},
+    {"_itmsa_RcppVMP", (DL_FUNC) &_itmsa_RcppVMP, 6},
     {NULL, NULL, 0}
 };
 

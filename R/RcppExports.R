@@ -9,3 +9,15 @@ RcppICMP <- function(d, s, unit, seed, permutation_number) {
     .Call(`_itmsa_RcppICMP`, d, s, unit, seed, permutation_number)
 }
 
+RcppVMBase <- function(d, s, unit) {
+    .Call(`_itmsa_RcppVMBase`, d, s, unit)
+}
+
+RcppVM <- function(d, s, unit, beta = 1) {
+    .Call(`_itmsa_RcppVM`, d, s, unit, beta)
+}
+
+RcppVMP <- function(d, s, unit, beta, seed, permutation_number) {
+    .Call(`_itmsa_RcppVMP`, d, s, unit, beta, seed, permutation_number)
+}
+
