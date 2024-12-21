@@ -18,8 +18,8 @@ with equal elements.
 $$
 h = 1 - \sum\limits_{j=1}^m \frac{A_j}{A} \frac{S_j^R}{S^R}
 $$
- 
-where $S^R = - \sum\limits_{i=1}^n \frac{A_i}{A} \log\frac{A_i}{A}$, $S_j^R = - \sum\limits_{i=1}^n \frac{a_{i,j}}{A_j} \log \frac{a_{i,j}}{A_j}$, and $a_{i,j}$ represents the count of elements where $R==i$ and $Z==j$. $A_i$ is the number of elements in the vector where $R==i$, and $A_j$ is the number of elements in the vector where $Z==j$. 
+
+where $S^R = - \sum\limits_{i=1}^n \frac{A_i}{A} \log\frac{A_i}{A}$, $S_j^R = - \sum\limits_{i=1}^n \frac{a_{i,j}}{A_j} \log \frac{a_{i,j}}{A_j}$, and $a_{i,j}$ represents the count of elements where $R==i$ and $Z==j$. $A_i$ is the number of elements in the vector where $R==i$, and $A_j$ is the number of elements in the vector where $Z==j$.
 
 By swapping $R$ and $Z$, $c$ can be calculated. Finally, the v-measure can be calculated useing the below formula:
 
@@ -36,14 +36,19 @@ install.packages("gdverse", dep = TRUE)
 
 
 ``` r
-library(sshicm)
+library(itmsa)
 ```
 
 
 ``` r
 ntds = gdverse::NTDs
 ntds$incidence = sdsfun::discretize_vector(ntds$incidence, 5)
-itm(incidence ~ watershed + elevation + soiltype, 
+itm(incidence ~ watershed + elevation + soiltype,
     data = ntds, method = "vm")
-## Error in itm(incidence ~ watershed + elevation + soiltype, data = ntds, : could not find function "itm"
+## # A tibble: 3 × 3
+##   Variable     Iv    Pv
+##   <chr>     <dbl> <dbl>
+## 1 watershed 0.373     0
+## 2 elevation 0.365     0
+## 3 soiltype  0.213     0
 ```
