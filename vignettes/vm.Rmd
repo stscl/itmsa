@@ -32,3 +32,21 @@ By swapping $R$ and $Z$, $c$ can be calculated. Finally, the v-measure can be ca
 $$
 V_{\beta} = \frac{(1+\beta)hc}{(\beta h) + c}
 $$
+
+## 2. Example
+
+```r
+install.packages("itmsa", dep = TRUE)
+install.packages("gdverse", dep = TRUE)
+```
+
+```{r}
+library(sshicm)
+```
+
+```{r}
+ntds = gdverse::NTDs
+ntds$incidence = sdsfun::discretize_vector(ntds$incidence, 5)
+itm(incidence ~ watershed + elevation + soiltype, 
+    data = ntds, method = "vm")
+```

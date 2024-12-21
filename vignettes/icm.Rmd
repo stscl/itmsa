@@ -24,3 +24,21 @@ I_{N}\left(d,s\right) = \frac{I \left(d,s\right)}{I \left(d\right)} =
 $$
 
 where $p\left(x\right)$ is the probability of observing $x$ in $U$, $p\left(s_i,x\right)$ is the probability of observing $s_i$ and $x$ in $U$, and $p\left(x \mid s_i\right)$ is the probability of observing $x$ given that the stratum is $s_i$.
+
+## 2. Example
+
+```r
+install.packages("itmsa", dep = TRUE)
+install.packages("gdverse", dep = TRUE)
+```
+
+```{r}
+library(sshicm)
+```
+
+```{r}
+ntds = gdverse::NTDs
+ntds$incidence = sdsfun::discretize_vector(ntds$incidence, 5)
+itm(incidence ~ watershed + elevation + soiltype, 
+    data = ntds, method = "icm")
+```
