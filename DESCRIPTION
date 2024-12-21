@@ -25,6 +25,7 @@ Imports:
     sf
 Suggests: 
     knitr,
+    Rcpp,
     RcppThread,
     rmarkdown,
     tibble

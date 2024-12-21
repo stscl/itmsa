@@ -15,6 +15,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(itmsa)
-```
+## 1. The principle of the information-theoretical V-measure
+
+Let us denote the area of the domain as A. Consider two different regionalizations of the domain. To make a further discussion more lucid, we will refer to the first one as a regionalization and to the second one as a partition. The regionalization $R$ divides the domain into $n$ regions $r_i \mid i = 1,\ldots,n$. The partition $Z$ divides the domain into
+$m$ zones $z_j \mid j = 1,\ldots,n$. Both $R$ and $Z$ are essentially integer-type vectors.
+
+$$
+h = 1 - \sum\limits_{j=1}^m \frac{A_j}{A} \frac{S_j^R}{S^R}
+$$
+ 
+where $S^R = - \sum\limits_{i=1}^n \frac{A_i}{A} \log\frac{A_i}{A}$, $S_j^R = - \sum\limits_{i=1}^n \frac{a_{i,j}}{A_j} \log \frac{a_{i,j}}{A_j}$, and $a_{i,j}$ represents the count of elements where $R==i$ and $Z==j$. $A_i$ is the number of elements in the vector where $R==i$, and $A_j$ is the number of elements in the vector where $Z==j$. 
