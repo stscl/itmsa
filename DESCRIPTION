@@ -21,7 +21,6 @@ LinkingTo:
 Imports: 
     dplyr,
     purrr,
-    Rcpp,
     sdsfun (>= 0.6.0),
     sf
 Suggests: 
