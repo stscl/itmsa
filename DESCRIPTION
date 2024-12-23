@@ -1,6 +1,6 @@
 Package: itmsa
 Title: Information-Theoretic Measures for Spatial Association
-Version: 0.1.0
+Version: 0.2.0
 Authors@R: 
     person(given = "Wenbo", family = "Lv",
            email = "lyu.geosocial@gmail.com", 
