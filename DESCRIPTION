@@ -29,5 +29,6 @@ Suggests:
     RcppThread,
     readr,
     rmarkdown,
+    spEDM,
     tibble
 VignetteBuilder: knitr
