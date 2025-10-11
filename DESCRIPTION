@@ -10,7 +10,7 @@ Description: Leveraging information-theoretic measures like mutual information a
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 URL: https://stscl.github.io/itmsa/, https://github.com/stscl/itmsa
 BugReports: https://github.com/stscl/itmsa/issues
 Depends: 
@@ -29,5 +29,6 @@ Suggests:
     RcppThread,
     readr,
     rmarkdown,
+    spEDM,
     tibble
 VignetteBuilder: knitr
