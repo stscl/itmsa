@@ -12,6 +12,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-cyan.svg)](htt
 [![DownloadsAll](https://badgen.net/cran/dt/itmsa?color=orange)](https://CRAN.R-project.org/package=itmsa)
 [![DownloadsMonth](https://cranlogs.r-pkg.org/badges/itmsa)](https://CRAN.R-project.org/package=itmsa)
 [![R-universe](https://stscl.r-universe.dev/badges/itmsa?color=cyan)](https://stscl.r-universe.dev/itmsa)
+[![R-CMD-check](https://github.com/stscl/itmsa/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/stscl/itmsa/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 **Information-Theoretic Measures for Spatial Association**
